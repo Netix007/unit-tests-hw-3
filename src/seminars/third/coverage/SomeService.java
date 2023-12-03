@@ -21,10 +21,7 @@ public class SomeService {
      * 3.2. Метод возвращает true для массивов, которые начинаются или заканчиваются 6, и false - если 6 нет ни в начале ни в конце массива
      */
     public boolean firstLast6(int[] nums) {
-        if (nums[0] == 6 || nums[nums.length-1] == 6) {
-            return true;
-        }
-        return false;
+        return nums[0] == 6 || nums[nums.length - 1] == 6;
     }
 
 
@@ -54,6 +51,27 @@ public class SomeService {
      * 3.4. Метод принимает на вход 3 числа (int a, b, c). Нужно вернуть их сумму. Однако, если одно из значений равно 13,
      * то оно не учитывается в сумме. Так, например, если b равно 13, то считается сумма только a и c.
      */
+
+
+    // Homework 3
+
+    /**
+     * Напишите тесты, покрывающие на 100% метод evenOddNumber, который проверяет, является ли
+     * переданное число четным или нечетным:
+     */
+
+    public boolean evenOddNumber(int n) {
+        return n % 2 == 0;
+    }
+
+    /**
+     * Разработайте и протестируйте метод numberInInterval, который проверяет, попадает ли
+     * переданное число в интервал (25;100)
+     */
+
+    public boolean numberInInterval(int n) {
+        return n > 25 && n < 100;
+    }
 
 
 }

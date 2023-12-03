@@ -4,7 +4,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -60,7 +59,7 @@ class SomeServiceTest {
     @Test
     void testArrayCellValueNot6() {
 
-        Boolean check = someService.firstLast6(new int[]{1, 2, 3, 4, 5, 1});
+        boolean check = someService.firstLast6(new int[]{1, 2, 3, 4, 5, 1});
 
         assertFalse(check);
     }
@@ -82,6 +81,26 @@ class SomeServiceTest {
                 someService.calculatingDiscount(amount, discount))
                 .isInstanceOf(ArithmeticException.class)
                 .hasMessage(result); // процент скидки больше 100%
+    }
+
+    @Test
+    void isEvenNumber() {
+
+        assertTrue(someService.evenOddNumber(8));
+
+    }
+
+    @Test
+    void isOddNumber() {
+
+        assertFalse(someService.evenOddNumber(13));
+
+    }
+
+    @ParameterizedTest
+    @CsvSource({"56, true", "1, false", "125, false"})
+    void isInInterval(int n, boolean result) {
+        assertThat(someService.numberInInterval(n)).isEqualTo(result);
     }
 
 }
